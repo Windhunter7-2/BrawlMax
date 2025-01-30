@@ -1,0 +1,17 @@
+.arc File = .pac File (Identical, Just Renamed)
+
+0x40 = Where Brres Files Start; Everything Before That Defines the .arc/.pac Itself
+
+Starting Here, Each Brres Is in Order, with Each Having the Following Bytes Before It:
+00 XX YY YY 00 00 ZZ ZZ 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+Where:
+XX = 01 for Misc Data, 02 for Model Data, 03 for Texture Data, etc.
+YYYY = Index Number (For Example, the Common ModelData[0] Would Be 0000, Whereas Something Like ModelData[10] Would Be 000A
+ZZZZ = Number of Bytes of Brres File
+
+For Example, the Following Would Represent a "Model Data[30]", That Is 2,000 Bytes in Size:
+00 02 00 1E 00 00 07 D0 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+Compression Gets Much More Complex, As It Changes Byte Sizes and Adds Padding, So This Has Not Been Analyzed (By Me) As of Yet
+
